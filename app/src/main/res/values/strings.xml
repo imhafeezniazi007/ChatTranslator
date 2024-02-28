@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Chat Translator</string>
+    <string name="instant_chat">Instant Chat</string>
+    <string name="string_toolbar_mfa">Chat Keyboard</string>
+    <string name="chat_translator">Chat Translator</string>
+    <string name="speech_to_text">Speech to Text</string>
+    <string name="translate">Translate</string>
+    <string name="voice_translator">Voice Translator</string>
+    <string name="themes">Themes</string>
+    <string name="tap_to_type_text">Tap to type text</string>
+    <string name="keyboard_setting">Keyboard Setting</string>
+    <string name="toolbar_cta">Chat Translator</string>
+    <string name="enter_your_text">Enter your text</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
