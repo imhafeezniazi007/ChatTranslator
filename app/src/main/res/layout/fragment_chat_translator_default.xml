@@ -1,28 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_background"
     tools:context=".Fragments.ChatTranslatorDefault">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_background">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/color_primary_blue"
-            android:elevation="4dp"
-            app:titleTextColor="@color/white"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
-        </androidx.appcompat.widget.Toolbar>
+        android:background="@color/color_background"
+        android:layout_marginTop="@dimen/_8sdp">
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/ct_spinner_one"
@@ -35,7 +24,7 @@
             android:background="@drawable/item_custom_spinner"
             android:padding="@dimen/_8sdp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ct_btn_intercast"
@@ -58,12 +47,13 @@
             android:background="@drawable/item_custom_spinner"
             android:padding="@dimen/_8sdp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/_150sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:background="@drawable/item_main_features_background"
             app:layout_constraintEnd_toEndOf="@+id/ct_spinner_two"
@@ -73,13 +63,13 @@
             <EditText
                 android:id="@+id/ct_editText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:background="@drawable/item_main_features_background"
                 android:gravity="top"
                 android:hint="@string/enter_your_text"
                 android:padding="@dimen/_8sdp"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/btn_ct_translate"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -101,7 +91,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/btn_ct_def_mic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_16sdp"
@@ -119,7 +109,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_ct_def_mic" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

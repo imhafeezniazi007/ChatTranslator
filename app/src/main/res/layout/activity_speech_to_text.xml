@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    tools:context=".Activities.SpeechToTextActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_primary_blue"
+        android:elevation="4dp"
+        app:titleTextColor="@color/white"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/ct_spinner_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@drawable/item_custom_spinner"
+        android:dropDownHeight="wrap_content"
+        android:padding="@dimen/_8sdp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_ct_constraint_two"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_200sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/item_main_features_background"
+        app:layout_constraintEnd_toEndOf="@+id/ct_spinner_one"
+        app:layout_constraintStart_toStartOf="@+id/ct_spinner_one"
+        app:layout_constraintTop_toBottomOf="@+id/ct_spinner_one">
+
+        <TextView
+            android:id="@+id/ct_lan_textView_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/item_main_features_background"
+            android:gravity="top"
+            android:padding="@dimen/_8sdp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ct_text_textView_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/ct_lan_textView_two"
+            app:layout_constraintTop_toBottomOf="@+id/ct_lan_textView_two" />
+
+        <TextView
+            android:id="@+id/placeholderTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:hint="Press the icon below to speak"
+            android:padding="@dimen/_8sdp"
+            android:textColorHint="@color/black"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/ct_lan_textView_two"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_ct_sound_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:visibility="gone"
+            android:src="@drawable/icon_ct_sound"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_ct_share"
+            app:layout_constraintEnd_toStartOf="@+id/btn_ct_share"
+            app:layout_constraintTop_toTopOf="@+id/btn_ct_share" />
+
+        <ImageView
+            android:id="@+id/btn_ct_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/icon_ct_share"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/btn_ct_cpy_two"
+            app:layout_constraintEnd_toStartOf="@id/btn_ct_cpy_two"
+            app:layout_constraintTop_toTopOf="@+id/btn_ct_cpy_two" />
+
+        <ImageView
+            android:id="@+id/btn_ct_cpy_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:visibility="gone"
+            android:src="@drawable/icon_ct_copy"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/btn_stt_voice_cmd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_ct_mic"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:padding="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="@+id/cl_ct_constraint_two"
+        app:layout_constraintStart_toStartOf="@+id/cl_ct_constraint_two"
+        app:layout_constraintTop_toBottomOf="@+id/cl_ct_constraint_two" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

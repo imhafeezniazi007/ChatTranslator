@@ -1,52 +1,84 @@
 package com.example.chattranslator.Services;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Typeface;
+import android.util.Log;
+import android.widget.Spinner;
+
 import com.example.chattranslator.Models.Language;
 import com.example.chattranslator.Utils.CONSTS;
+import com.google.mlkit.nl.translate.TranslateLanguage;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 public class LanguageApiService {
 
-    OkHttpClient client = new OkHttpClient();
+    private List<Language> languageList;
+    public List<Language> fetchData(Context context) {
+         languageList = new ArrayList<>();
 
-    public List<Language> fetchData() {
-        List<Language> languageList = new ArrayList<>();
-
-        Request request = new Request.Builder()
-                .url(CONSTS.BASE_URL)
-                .get()
-                .addHeader("X-RapidAPI-Key", CONSTS.API_KEY)
-                .addHeader("X-RapidAPI-Host", CONSTS.API_HOST)
-                .build();
-
-        try {
-            Response response = client.newCall(request).execute();
-            if (response.isSuccessful()) {
-                String responseData = response.body().string();
-                JSONArray jsonArray = new JSONArray(responseData);
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    String name = jsonObject.getString("name");
-                    String code = jsonObject.getString("code");
-                    Language language = new Language();
-                    language.setName(name);
-                    language.setCode(code);
-                    languageList.add(language);
-                }
-            } else {
-                System.out.println("Error: " + response.code());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error: " + e.getMessage());
+        for (String languages : TranslateLanguage.getAllLanguages()) {
+            Language language = new Language();
+            Locale locale = new Locale(languages);
+            String str = locale.getDisplayLanguage();
+            Bitmap btm = getFlagBitmap(context, languages);
+            language.setName(str);
+            language.setCode(languages);
+            language.setFlag(btm);
+            languageList.add(language);
         }
-
         return languageList;
+    }
+
+    private String getFlagEmoji(String countryCode) {
+        countryCode = countryCode.toUpperCase();
+        int OFFSET = 127397;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < countryCode.length(); i++) {
+            sb.appendCodePoint(countryCode.charAt(i) + OFFSET);
+        }
+        return sb.toString();
+    }
+
+    public Bitmap getFlagBitmap(Context context, String countryCode) {
+        String flagEmoji = getFlagEmoji(countryCode);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setTextSize(100);
+        paint.setColor(Color.BLACK);
+        paint.setTextAlign(Paint.Align.CENTER);
+        paint.setTypeface(Typeface.DEFAULT_BOLD);
+
+        int width = (int) paint.measureText(flagEmoji);
+        int height = (int) paint.getTextSize();
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+
+        canvas.drawText(flagEmoji, width / 2f, height * 0.75f, paint);
+
+        return bitmap;
+    }
+
+    public int getSpinnerPosition(String languageCode)
+    {
+        Language selectedLanguage = null;
+        for (Language language : languageList) {
+            if (language.getCode().equals(languageCode)) {
+                selectedLanguage = language;
+                break;
+            }
+        }
+        return languageList.indexOf(selectedLanguage);
     }
 }

@@ -24,7 +24,6 @@ import java.util.List;
 public class ChatTranslatorActivity extends AppCompatActivity {
 
     ActivityChatTranslatorBinding activityChatTranslatorBinding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +41,17 @@ public class ChatTranslatorActivity extends AppCompatActivity {
             }
         });
 
-        new ChatTranslatorDefault();
+        String text = getIntent().getStringExtra("text");
+        replaceFragment(new ChatTranslatorDefault(), text);
     }
 
+    private void replaceFragment(Fragment fragment, String text) {
+        Bundle bundle = new Bundle();
+        bundle.putString("text", text);
+        fragment.setArguments(bundle);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.commit();
+    }
 }

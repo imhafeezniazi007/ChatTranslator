@@ -13,4 +13,22 @@
     <string name="enter_your_text">Enter your text</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_translation">New Translation</string>
+    <string name="setting">Setting</string>
+    <string name="enable_disable">Enable / Disable</string>
+    <string name="you_can_enable_or_disable_voice_keyboard">You can enable or disable voice keyboard</string>
+    <string name="select_input_languages">Select input languages</string>
+    <string name="english_united_states">English (United States)</string>
+    <string name="show_number_row_on_top_of_character_layout">Show number row on top of character layout</string>
+    <string name="popup_visibility">Popup Visibility</string>
+    <string name="show_popup_when_you_press_a_key">Show popup when you press a key</string>
+    <string name="e_g_keys_buttons_emoji_tabs">e.g. keys, buttons, emoji tabs</string>
+    <string name="key_press_sounds">Key press sounds</string>
+    <string name="enable_haptic_feedback">Enable haptic feedback</string>
+    <string name="vibrate_for_input_events_dependent_on_system_settings">Vibrate for input events, dependent on system settings</string>
+    <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit?</string>
+    <string name="rate_us">Rate Us!</string>
+    <string name="how_would_you_love_this_app">How would you love this app?</string>
+    <string name="exit">Exit</string>
+    <string name="cancel">Cancel</string>
 </resources>

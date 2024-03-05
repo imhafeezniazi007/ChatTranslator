@@ -6,4 +6,6 @@
     <color name="color_sky_blue">#C6FFF5</color>
     <color name="color_blue_button">#5492FF</color>
     <color name="color_background">#F5F5F5</color>
+    <color name="color_exit_blue">#5A76FF</color>
+    <color name="color_grey_transparent">#E0E0E0</color>
 </resources>

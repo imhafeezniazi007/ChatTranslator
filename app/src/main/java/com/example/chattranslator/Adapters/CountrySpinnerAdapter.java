@@ -56,7 +56,7 @@ public class CountrySpinnerAdapter extends BaseAdapter {
         Language language = languageList.get(position);
 
         viewHolder.countryNameTextView.setText(language.getName());
-        Log.d("ADAPTER_DEBUG", "getView: " + language.getName() + " " + language.getCode());
+        viewHolder.flagImageView.setImageBitmap(language.getFlag());
 
         return view;
     }
