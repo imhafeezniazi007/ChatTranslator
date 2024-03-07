@@ -1,0 +1,55 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="10%p"
+    android:keyHeight="50dp">
+
+    <!-- Alphabets Row 1 -->
+    <Row android:verticalGap="1.5%p">
+        <Key android:codes="1609" android:keyLabel="ض" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1578" android:keyLabel="ص" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1575" android:keyLabel="ث" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1603" android:keyLabel="ق" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1582" android:keyLabel="ف" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1580" android:keyLabel="غ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1593" android:keyLabel="ع" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1602" android:keyLabel="ه" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1577" android:keyLabel="خ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1574" android:keyLabel="ح" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+    </Row>
+
+    <!-- Alphabets Row 2 -->
+    <Row android:verticalGap="1.5%p">
+        <Key android:codes="1608" android:keyLabel="ج" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1587" android:keyLabel="د" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1601" android:keyLabel="ش" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1610" android:keyLabel="س" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1606" android:keyLabel="ي" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1604" android:keyLabel="ب" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1588" android:keyLabel="ل" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1600" android:keyLabel="ا" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1594" android:keyLabel="ت" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="1591" android:keyLabel="ن" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+    </Row>
+
+    <!-- Alphabets Row 3 -->
+    <Row android:verticalGap="1.5%p">
+        <Key android:codes="2336" android:keyIcon="@drawable/ic_caps_keyboard" android:padding="5dp" android:keyWidth="15%p" android:horizontalGap="1%p"/>
+        <Key android:codes="1607" android:keyLabel="م" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>
+        <Key android:codes="1590" android:keyLabel="ك" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>
+        <Key android:codes="1586" android:keyLabel="ط" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>
+        <Key android:codes="1581" android:keyLabel="ئ" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>
+        <Key android:codes="1576" android:keyLabel="ء" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>
+        <Key android:codes="1605" android:keyLabel="ؤ" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>
+        <Key android:codes="1585" android:keyLabel="ر" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>
+        <Key android:codes="1589" android:keyLabel="لا" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="8.75%p"/>
+        <Key android:codes="-5" android:keyIcon="@drawable/ic_backspace" android:keyWidth="15%p" android:horizontalGap="1%p"/>
+    </Row>
+
+    <Row android:rowEdgeFlags="bottom" android:verticalGap="0.5%p">
+        <Key android:codes="-101" android:keyLabel="123?" android:keyWidth="10%p" android:horizontalGap="1%p" android:padding="5dp"/>
+        <Key android:codes="-102" android:keyIcon="@drawable/ic_languages" android:keyWidth="10%p" android:horizontalGap="1%p" android:padding="5dp"/>
+        <Key android:codes="32" android:keyLabel="Space" android:keyWidth="50%p" android:horizontalGap="1%p" android:padding="5dp"/>
+        <Key android:codes="158" android:keyLabel="." android:keyWidth="10%p" android:horizontalGap="1%p" android:padding="5dp"/>
+        <Key android:codes="10" android:keyLabel="Done" android:keyWidth="10%p" android:horizontalGap="1%p" android:padding="5dp"/>
+        <Key android:codes="1004" android:keyIcon="@drawable/ic_btn_translate" android:keyWidth="10%p" android:horizontalGap="1%p" android:padding="5dp"/>
+    </Row>
+</Keyboard>

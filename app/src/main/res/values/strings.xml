@@ -18,7 +18,7 @@
     <string name="enable_disable">Enable / Disable</string>
     <string name="you_can_enable_or_disable_voice_keyboard">You can enable or disable voice keyboard</string>
     <string name="select_input_languages">Select input languages</string>
-    <string name="english_united_states">English (United States)</string>
+    <string name="english_united_states">English (Default)</string>
     <string name="show_number_row_on_top_of_character_layout">Show number row on top of character layout</string>
     <string name="popup_visibility">Popup Visibility</string>
     <string name="show_popup_when_you_press_a_key">Show popup when you press a key</string>
@@ -31,4 +31,7 @@
     <string name="how_would_you_love_this_app">How would you love this app?</string>
     <string name="exit">Exit</string>
     <string name="cancel">Cancel</string>
+    <string name="rate">\@</string>
+    <string name="questionmark">\?</string>
+    <string name="type_here_to_translate">Type here to translate</string>
 </resources>

@@ -1,0 +1,69 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="10%p"
+    android:keyHeight="50dp">
+
+    <Row android:verticalGap="1.5%p">
+        <Key android:keyIcon="@drawable/ic_keyboard_add" android:keyWidth="33.33%p" android:padding="5dp" android:codes="1001" android:id="@+id/item1"/>
+        <Key android:keyIcon="@drawable/ic_keyboard_setting" android:keyWidth="33.33%p"  android:padding="5dp" android:codes="1002" android:id="@+id/item2"/>
+        <Key android:keyIcon="@drawable/ic_keyboard_mic" android:keyWidth="33.33%p"  android:padding="5dp" android:codes="1003" android:id="@+id/item3" />
+    </Row>
+    <!-- Row 1 -->
+    <Row android:verticalGap="1.5%p">
+        <Key android:codes="2325" android:keyLabel="क" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2326" android:keyLabel="ख" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2327" android:keyLabel="ग" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2328" android:keyLabel="घ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2329" android:keyLabel="ङ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2330" android:keyLabel="च" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2331" android:keyLabel="छ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2332" android:keyLabel="ज" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2333" android:keyLabel="झ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2334" android:keyLabel="ञ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+    </Row>
+
+    <!-- Row 2 -->
+    <Row android:verticalGap="1.5%p">
+        <Key android:codes="2335" android:keyLabel="ट" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2336" android:keyLabel="ठ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2337" android:keyLabel="ड" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2338" android:keyLabel="ढ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2339" android:keyLabel="ण" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2340" android:keyLabel="त" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2341" android:keyLabel="थ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2342" android:keyLabel="द" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2343" android:keyLabel="ध" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+        <Key android:codes="2344" android:keyLabel="न" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
+    </Row>
+
+    <!-- Row 3 -->
+    <Row android:verticalGap="1.5%p">
+        <Key android:codes="2346" android:keyLabel="प" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
+        <Key android:codes="2347" android:keyLabel="फ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
+        <Key android:codes="2348" android:keyLabel="ब" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
+        <Key android:codes="2349" android:keyLabel="भ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
+        <Key android:codes="2350" android:keyLabel="म" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
+        <Key android:codes="2351" android:keyLabel="य" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
+        <Key android:codes="2352" android:keyLabel="र" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
+        <Key android:codes="2354" android:keyLabel="ल" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
+        <Key android:codes="2357" android:keyLabel="व" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
+    </Row>
+
+    <!-- Row 4 -->
+    <Row android:verticalGap="1.5%p">
+        <Key android:codes="2336" android:keyIcon="@drawable/ic_caps_keyboard" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="20%p"/>
+        <Key android:codes="2358" android:keyLabel="श" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="15%p"/>
+        <Key android:codes="2359" android:keyLabel="ष" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="15%p"/>
+        <Key android:codes="2360" android:keyLabel="स" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="15%p"/>
+        <Key android:codes="2361" android:keyLabel="ह" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="15%p"/>
+        <Key android:codes="-5" android:keyIcon="@drawable/ic_backspace" android:horizontalGap="1%p" android:keyWidth="20%p"/>
+    </Row>
+
+    <!-- Row 5 -->
+    <Row android:rowEdgeFlags="bottom" android:verticalGap="0.5%p">
+        <Key android:codes="-101" android:keyLabel="123?" android:keyWidth="15%p" android:horizontalGap="1%p" android:padding="5dp"/>
+        <Key android:codes="-102" android:keyIcon="@drawable/ic_languages" android:keyWidth="10%p" android:horizontalGap="1%p" android:padding="5dp"/>
+        <Key android:codes="32" android:keyLabel="Space" android:keyWidth="50%p" android:horizontalGap="1%p" android:padding="5dp"/>
+        <Key android:codes="158" android:keyLabel="." android:keyWidth="10%p" android:horizontalGap="1%p" android:padding="5dp"/>
+        <Key android:codes="10" android:keyLabel="Done" android:keyWidth="15%p" android:horizontalGap="1%p" android:padding="5dp"/>
+    </Row>
+</Keyboard>

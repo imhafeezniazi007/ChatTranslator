@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<LinearLayout
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/color_background"
+    android:visibility="gone"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentEnd="true">
+    <LinearLayout
+        android:id="@+id/keyboard_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@color/color_background"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back_blk"
+            android:layout_marginEnd="8dp" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/keyboard_spinner_one"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:dropDownHeight="wrap_content"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/item_custom_spinner"
+            android:padding="8dp" />
+
+        <ImageView
+            android:id="@+id/ct_btn_intercast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_ct_intercast"
+            android:padding="8dp"
+            android:layout_marginStart="8dp" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/keyboard_spinner_two"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_weight="1"
+            android:dropDownHeight="wrap_content"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/item_custom_spinner"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@color/color_background">
+
+        <EditText
+            android:id="@+id/keyboard_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_main_features_background"
+            android:padding="@dimen/_8sdp"
+            android:hint="@string/type_here_to_translate"
+            android:textColorHint="@color/black"
+            android:layout_margin="@dimen/_8sdp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <android.inputmethodservice.KeyboardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:keyBackground="@drawable/key_background"
+        android:keyTextSize="20sp"
+        android:keyTextColor="@color/white"
+        android:background="@color/black"
+        android:layout_below="@id/mainLayout" />
+
+</RelativeLayout>

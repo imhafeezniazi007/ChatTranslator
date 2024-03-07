@@ -7,6 +7,7 @@
     android:background="@color/color_background"
     tools:context=".Activities.VoiceTranslatorActivity">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

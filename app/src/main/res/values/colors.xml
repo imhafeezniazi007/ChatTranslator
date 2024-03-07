@@ -8,4 +8,11 @@
     <color name="color_background">#F5F5F5</color>
     <color name="color_exit_blue">#5A76FF</color>
     <color name="color_grey_transparent">#E0E0E0</color>
+    <color name="keyboard_background">#FFFFFF</color>
+    <color name="key_background_color">#E0E0E0</color>
+    <color name="key_text_color">#000000</color>
+    <color name="key_stroke_color">#CCCCCC</color>
+    <color name="key_popup_text_color">#FFFFFF</color>
+    <color name="key_popup_background">#333333</color>
+
 </resources>

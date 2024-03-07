@@ -20,266 +20,301 @@
         app:layout_constraintTop_toTopOf="parent" >
     </androidx.appcompat.widget.Toolbar>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_setting_constraint_one"
+        android:id="@+id/constraintList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_8sdp"
-        android:background="@drawable/item_main_features_background"
-        android:padding="@dimen/_8sdp"
+        android:layout_height="0dp"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@color/color_background">
 
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/enable_disable"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/imageView8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp"
-            android:padding="@dimen/_8sdp"
-            android:src="@drawable/icon_setting_arrow"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv1" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/you_can_enable_or_disable_voice_keyboard"
-            app:layout_constraintEnd_toEndOf="@+id/tv1"
-            app:layout_constraintStart_toStartOf="@+id/tv1"
-            app:layout_constraintTop_toBottomOf="@+id/tv1" />
+        <ListView
+            android:id="@+id/lv_listVew"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_setting_constraint_two"
+        android:id="@+id/constraintMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_8sdp"
         android:background="@drawable/item_main_features_background"
         android:padding="@dimen/_8sdp"
-        app:layout_constraintTop_toBottomOf="@id/cl_setting_constraint_one"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-        <TextView
-            android:id="@+id/tv2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/select_input_languages"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/imageView9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_setting_constraint_one"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/item_main_features_background"
             android:padding="@dimen/_8sdp"
-            android:src="@drawable/icon_setting_arrow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv2" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/english_united_states"
-            app:layout_constraintEnd_toEndOf="@+id/tv2"
-            app:layout_constraintStart_toStartOf="@+id/tv2"
-            app:layout_constraintTop_toBottomOf="@+id/tv2" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_setting_constraint_three"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_8sdp"
-        android:background="@drawable/item_main_features_background"
-        android:padding="@dimen/_8sdp"
-        app:layout_constraintTop_toBottomOf="@id/cl_setting_constraint_two"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/tv3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Number Row"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/switchOne"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchOne"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="@string/enable_disable"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/icon_setting_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/you_can_enable_or_disable_voice_keyboard"
+                app:layout_constraintEnd_toEndOf="@+id/tv1"
+                app:layout_constraintStart_toStartOf="@+id/tv1"
+                app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_setting_constraint_two"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_8sdp"
-            app:thumbTint="@color/color_primary_blue"
-            app:trackTint="@color/color_sky_blue"
+            android:background="@drawable/item_main_features_background"
             android:padding="@dimen/_8sdp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv3" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/show_number_row_on_top_of_character_layout"
-            app:layout_constraintEnd_toEndOf="@+id/tv3"
-            app:layout_constraintStart_toStartOf="@+id/tv3"
-            app:layout_constraintTop_toBottomOf="@+id/tv3" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_setting_constraint_four"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_8sdp"
-        android:background="@drawable/item_main_features_background"
-        android:padding="@dimen/_8sdp"
-        app:layout_constraintTop_toBottomOf="@id/cl_setting_constraint_three"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:text="@string/popup_visibility"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/switchTwo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/cl_setting_constraint_one">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchTwo"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="@string/select_input_languages"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/icon_setting_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv2" />
+
+            <TextView
+                android:id="@+id/languageNameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/english_united_states"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/tv2"
+                app:layout_constraintStart_toStartOf="@+id/tv2"
+                app:layout_constraintTop_toBottomOf="@+id/tv2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_setting_constraint_three"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_8sdp"
-            app:thumbTint="@color/color_primary_blue"
-            app:trackTint="@color/color_sky_blue"
+            android:background="@drawable/item_main_features_background"
             android:padding="@dimen/_8sdp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textView2" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/show_popup_when_you_press_a_key"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_setting_constraint_five"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_8sdp"
-        android:background="@drawable/item_main_features_background"
-        android:padding="@dimen/_8sdp"
-        app:layout_constraintTop_toBottomOf="@id/cl_setting_constraint_four"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/key_press_sounds"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/switchThree"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/cl_setting_constraint_two">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchThree"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="Number Row"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/switchOne"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:padding="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv3"
+                app:thumbTint="@color/color_primary_blue"
+                app:trackTint="@color/color_sky_blue" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/show_number_row_on_top_of_character_layout"
+                app:layout_constraintEnd_toEndOf="@+id/tv3"
+                app:layout_constraintStart_toStartOf="@+id/tv3"
+                app:layout_constraintTop_toBottomOf="@+id/tv3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_setting_constraint_four"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_8sdp"
-            app:thumbTint="@color/color_primary_blue"
-            app:trackTint="@color/color_sky_blue"
+            android:background="@drawable/item_main_features_background"
             android:padding="@dimen/_8sdp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textView3" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/e_g_keys_buttons_emoji_tabs"
-            app:layout_constraintEnd_toEndOf="@+id/textView3"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_setting_constraint_six"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_8sdp"
-        android:background="@drawable/item_main_features_background"
-        android:padding="@dimen/_8sdp"
-        app:layout_constraintTop_toBottomOf="@id/cl_setting_constraint_five"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/enable_haptic_feedback"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/switchFour"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/cl_setting_constraint_three">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchFour"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="@string/popup_visibility"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/switchTwo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:padding="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView2"
+                app:thumbTint="@color/color_primary_blue"
+                app:trackTint="@color/color_sky_blue" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/show_popup_when_you_press_a_key"
+                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_setting_constraint_five"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_8sdp"
-            app:thumbTint="@color/color_primary_blue"
-            app:trackTint="@color/color_sky_blue"
+            android:background="@drawable/item_main_features_background"
             android:padding="@dimen/_8sdp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textView4" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_setting_constraint_four">
 
-        <TextView
-            android:layout_width="0dp"
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="@string/key_press_sounds"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/switchThree"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:padding="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView3"
+                app:thumbTint="@color/color_primary_blue"
+                app:trackTint="@color/color_sky_blue" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/e_g_keys_buttons_emoji_tabs"
+                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_setting_constraint_six"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/vibrate_for_input_events_dependent_on_system_settings"
-            app:layout_constraintEnd_toEndOf="@+id/textView4"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/item_main_features_background"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_setting_constraint_five">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="@string/enable_haptic_feedback"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/switchFour"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchFour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:padding="@dimen/_8sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textView4"
+                app:thumbTint="@color/color_primary_blue"
+                app:trackTint="@color/color_sky_blue" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/vibrate_for_input_events_dependent_on_system_settings"
+                app:layout_constraintEnd_toEndOf="@+id/textView4"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

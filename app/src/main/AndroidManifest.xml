@@ -21,7 +21,15 @@
             android:exported="false" />
         <activity
             android:name=".Activities.SettingActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="chattranslator" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".Activities.VoiceTranslatorActivity"
             android:exported="false" />
@@ -44,6 +52,20 @@
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="langid" />
+
+        <service
+            android:name=".Services.MyInputMethodService"
+            android:label="Translator Keyboard"
+            android:permission="android.permission.BIND_INPUT_METHOD"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.view.InputMethod"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method"/>
+        </service>
+
     </application>
 
 </manifest>
