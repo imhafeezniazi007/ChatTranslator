@@ -2,13 +2,13 @@
     android:keyWidth="10%p"
     android:keyHeight="50dp">
 
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:keyIcon="@drawable/ic_keyboard_add" android:keyWidth="33.33%p" android:padding="5dp" android:codes="1001" android:id="@+id/item1"/>
         <Key android:keyIcon="@drawable/ic_keyboard_setting" android:keyWidth="33.33%p"  android:padding="5dp" android:codes="1002" android:id="@+id/item2"/>
         <Key android:keyIcon="@drawable/ic_keyboard_mic" android:keyWidth="33.33%p"  android:padding="5dp" android:codes="1003" android:id="@+id/item3" />
     </Row>
     <!-- Alphabets Row 1 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="1609" android:keyLabel="ض" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
         <Key android:codes="1578" android:keyLabel="ص" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
         <Key android:codes="1575" android:keyLabel="ث" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
@@ -22,7 +22,7 @@
     </Row>
 
     <!-- Alphabets Row 2 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="1608" android:keyLabel="ج" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
         <Key android:codes="1587" android:keyLabel="د" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
         <Key android:codes="1601" android:keyLabel="ش" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
@@ -36,7 +36,7 @@
     </Row>
 
     <!-- Alphabets Row 3 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="2336" android:keyIcon="@drawable/ic_caps_keyboard" android:padding="5dp" android:keyWidth="15%p" android:horizontalGap="1%p"/>
         <Key android:codes="1607" android:keyLabel="م" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>
         <Key android:codes="1590" android:keyLabel="ك" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>

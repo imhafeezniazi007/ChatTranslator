@@ -1,13 +1,17 @@
 package com.example.chattranslator.Services;// TextTranslateService.java
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.view.ContextThemeWrapper;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
 import com.example.chattranslator.Activities.MainFeaturesActivity;
+import com.example.chattranslator.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.mlkit.common.model.DownloadConditions;
@@ -44,6 +48,7 @@ public class TextTranslateService {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(Exception e) {
+
                     }
                 });
     }

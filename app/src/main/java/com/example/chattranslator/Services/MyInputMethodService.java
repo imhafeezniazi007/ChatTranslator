@@ -1,29 +1,55 @@
 package com.example.chattranslator.Services;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.core.content.ContextCompat;
 
+import com.example.chattranslator.Activities.SpeechToTextActivity;
 import com.example.chattranslator.Adapters.CountrySpinnerAdapter;
 import com.example.chattranslator.Models.Language;
 import com.example.chattranslator.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.mlkit.nl.translate.Translation;
+import com.google.mlkit.nl.translate.Translator;
+import com.google.mlkit.nl.translate.TranslatorOptions;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 public class MyInputMethodService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
     private KeyboardView keyboardView;
@@ -33,12 +59,16 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     private boolean isAlphabetsDisplayed = true;
     private int languageState = 0;
     private SharedPreferences sharedPreferences;
-    private boolean toggleNumbers;
+    private boolean toggleNumbers, isFocused;
     private ImageView imageView;
     private AppCompatSpinner spinnerOne, spinnerTwo;
     private int posSpinnerOne = 0, posSpinnerTwo = 0;
     private List<Language> languages;
-    private String currLan;
+    private SpeechRecognizer speechRecognizer;
+    private String currLan, textToTranslate, sourceLanCode, destinationLanCode;
+    private SpeechToTextService stts;
+    private Handler handler;
+    private boolean backspaceLongPressed;
 
     @Override
     public View onCreateInputView() {
@@ -49,7 +79,10 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         imageView = view.findViewById(R.id.backBtn);
         spinnerOne = view.findViewById(R.id.keyboard_spinner_one);
         spinnerTwo = view.findViewById(R.id.keyboard_spinner_two);
-
+        textToTranslate = keyboardEditText.getText().toString();
+        LanguageApiService languageApiService = new LanguageApiService();
+        languages = languageApiService.fetchData(this);
+        stts = new SpeechToTextService();
 
         sharedPreferences = getSharedPreferences("sharedPreference", Context.MODE_PRIVATE);
         toggleNumbers = sharedPreferences.getBoolean("toggleNumbers", false);
@@ -66,6 +99,67 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
 
         fetchDataAndPopulateSpinners();
 
+        keyboardEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                isFocused = hasFocus;
+            }
+        });
+        spinnerTwo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Language selectedLanguage = (Language) parent.getItemAtPosition(position);
+                if (selectedLanguage != null) {
+                    String destinationLanCodeUpdated = selectedLanguage.getCode();
+                    if (!Objects.equals(destinationLanCode, destinationLanCodeUpdated)) {
+                        translateText(textToTranslate, sourceLanCode, destinationLanCodeUpdated);
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        spinnerOne.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Language selectedLanguage = (Language) parent.getItemAtPosition(position);
+                if (selectedLanguage != null) {
+                    String sourceLanCodeUpdated = selectedLanguage.getCode();
+                    if (!Objects.equals(sourceLanCode, sourceLanCodeUpdated)) {
+                        translateText(textToTranslate, sourceLanCodeUpdated, destinationLanCode);
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        textToTranslate = keyboardEditText.getText().toString();
+        if (!textToTranslate.equals("")) {
+            detectLanguage(textToTranslate);
+        } else {
+            keyboardEditText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    if (!s.toString().equals("")) {
+                        detectLanguage(s.toString());
+                    }
+                }
+            });
+        }
         posSpinnerOne = spinnerOne.getSelectedItemPosition();
         posSpinnerTwo = spinnerTwo.getSelectedItemPosition();
         return view;
@@ -75,27 +169,132 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     public void onKey(int primaryCode, int[] keyCodes) {
         InputConnection ic = getCurrentInputConnection();
         if (ic == null) return;
-        if (primaryCode == -101) {
-            toggleKeyboardLayout();
-        } else if (primaryCode == Keyboard.KEYCODE_DELETE) {
-            ic.deleteSurroundingText(1, 0);
-        } else if (primaryCode == Keyboard.KEYCODE_DONE) {
-            ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
-        } else if (primaryCode == -102) {
-            changeLanguage();
-        } else if (primaryCode == 1001) {
-            textTranslate();
-        } else if (primaryCode == 1002) {
-            openSettings();
-        } else if (primaryCode == 1003) {
-            voiceTranslate();
+        if (!isFocused) {
+            if (primaryCode == -101) {
+                toggleKeyboardLayout();
+            } else if (primaryCode == Keyboard.KEYCODE_DELETE) {
+                ic.deleteSurroundingText(1, 0);
+            } else if (primaryCode == Keyboard.KEYCODE_DONE) {
+                ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
+            } else if (primaryCode == -102) {
+                changeLanguage();
+            } else if (primaryCode == 1001) {
+                translateView();
+            } else if (primaryCode == 1002) {
+                openSettings();
+            } else if (primaryCode == 1003) {
+                voiceTranslateView();
+            } else if (primaryCode == 1004) {
+                if (!textToTranslate.equals("") && !sourceLanCode.equals("") && !destinationLanCode.equals("")) {
+                    translateText(textToTranslate, sourceLanCode, destinationLanCode);
+                }
+            } else if (primaryCode == 1005) {
+                voiceTranslate();
+            } else if (primaryCode == 1006) {
+                translateView();
+            } else {
+                char code = (char) primaryCode;
+                ic.commitText(String.valueOf(code), 1);
+            }
         } else {
-            char code = (char) primaryCode;
-            ic.commitText(String.valueOf(code), 1);
+            InputConnection icn = keyboardEditText.onCreateInputConnection(new EditorInfo());
+            if (primaryCode == -101) {
+                changeLanguage();
+            } else if (primaryCode == Keyboard.KEYCODE_DELETE) {
+                icn.deleteSurroundingText(1, 0);
+            } else if (primaryCode == Keyboard.KEYCODE_DONE) {
+                icn.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
+            } else if (primaryCode == -102) {
+                changeLanguage();
+            } else if (primaryCode == 1001) {
+                translateView();
+            } else if (primaryCode == 1002) {
+                openSettings();
+            } else if (primaryCode == 1003) {
+                voiceTranslateView();
+            } else if (primaryCode == 1004) {
+                Language selectedLanguageSecond = (Language) spinnerTwo.getSelectedItem();
+                destinationLanCode = selectedLanguageSecond.getCode();
+                translateText(textToTranslate, sourceLanCode, destinationLanCode);
+            } else if (primaryCode == 1005) {
+                voiceTranslate();
+            } else if (primaryCode == 1006) {
+                translateView();
+            } else {
+                char code = (char) primaryCode;
+                icn.commitText(String.valueOf(code), 1);
+            }
         }
     }
 
-    private void textTranslate() {
+    private void voiceTranslateView() {
+        keyboard = new Keyboard(this, R.xml.voice_translate_layout);
+        keyboardView.setKeyboard(keyboard);
+        keyboardView.setOnKeyboardActionListener(this);
+    }
+
+    private void detectLanguage(String string) {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                TextTranslateService textTranslateService = new TextTranslateService(MyInputMethodService.this);
+                textTranslateService.identifyLanguage(string, new TextTranslateService.LanguageIdentificationCallback() {
+                    @Override
+                    public void onLanguageIdentified(String languageCode) {
+                        textToTranslate = keyboardEditText.getText().toString();
+                        sourceLanCode = languageCode;
+                        int pos = getSpinnerPosition(languageCode);
+                        spinnerOne.setSelection(pos);
+                    }
+                });
+            }
+        }, 300);
+    }
+
+    private int getSpinnerPosition(String languageCode) {
+        for (int i = 0; i < languages.size(); i++) {
+            if (languages.get(i).getCode().equals(languageCode)) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    private void translateText(String text, String sourceLan, String destLan) {
+        Log.d("TAG", "translateText: with " + text);
+        if (textToTranslate.equals("")) {
+            keyboardEditText.setError("Please write text to translate");
+        } else {
+
+            TranslatorOptions options = new TranslatorOptions.Builder()
+                    .setSourceLanguage(sourceLan)
+                    .setTargetLanguage(destLan)
+                    .build();
+            Translator translator = Translation.getClient(options);
+
+            translator.downloadModelIfNeeded();
+            translator.translate(text)
+                    .addOnSuccessListener(new OnSuccessListener<String>() {
+                        @Override
+                        public void onSuccess(String s) {
+                            InputConnection ic = getCurrentInputConnection();
+                            if (ic != null) {
+                                ic.commitText(s + " ", 1);
+                            }
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                        }
+                    });
+        }
+
+    }
+
+    private void translateView() {
         switch (languageState) {
             case 0:
                 if (toggleNumbers) {
@@ -149,10 +348,20 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         }
         keyboardView.setKeyboard(keyboard);
         keyboardView.setOnKeyboardActionListener(this);
+
+
     }
 
     private void voiceTranslate() {
-
+        stts.getSTTKeyboard(this, new SpeechToTextService.SpeechRecognitionCallBack() {
+            @Override
+            public void onSpeechRecognised(String data) {
+                InputConnection ic = getCurrentInputConnection();
+                if (ic != null) {
+                    ic.commitText(data + " ", 1);
+                }
+            }
+        });
     }
 
     private void openSettings() {
@@ -214,33 +423,49 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         spinnerTwo.setAdapter(adapter);
     }
 
-//    @Override
-//    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
-//        if (keyCode == Keyboard.KEYCODE_DELETE) {
-//            InputConnection ic = getCurrentInputConnection();
-//            CharSequence textBeforeCursor = ic.getTextBeforeCursor(Integer.MAX_VALUE, 0);
-//            int length = textBeforeCursor != null ? textBeforeCursor.length() : 0;
-//            ic.deleteSurroundingText(length, 0);
-//            return true;
-//        }
-//        return super.onKeyLongPress(keyCode, event);
-//    }
-
     private void toggleKeyboardLayout() {
         if (isAlphabetsDisplayed) {
             keyboard = new Keyboard(this, R.xml.numbers_special_characters_layout);
         } else {
-            keyboard = new Keyboard(this, R.xml.number_pad);
+            toggleOnABC();
         }
         keyboardView.setKeyboard(keyboard);
         isAlphabetsDisplayed = !isAlphabetsDisplayed;
+    }
+
+    private void toggleOnABC() {
+        switch (languageState) {
+            case 0:
+                if (toggleNumbers) {
+                    keyboard = new Keyboard(this, R.xml.number_pad_with_numbers);
+                    mainLayout.setVisibility(View.GONE);
+                } else {
+                    keyboard = new Keyboard(this, R.xml.number_pad);
+                    mainLayout.setVisibility(View.GONE);
+                    keyboardView.setKeyboard(keyboard);
+                }
+                break;
+            case 1:
+                keyboard = new Keyboard(this, R.xml.hindi_keyboard_layout);
+                mainLayout.setVisibility(View.GONE);
+                keyboardView.setKeyboard(keyboard);
+                break;
+            case 2:
+                keyboard = new Keyboard(this, R.xml.arabic_keyboard_layout);
+                mainLayout.setVisibility(View.GONE);
+                keyboardView.setKeyboard(keyboard);
+                break;
+        }
+        keyboardView.setOnKeyboardActionListener(this);
+
     }
 
     @Override
     public void onPress(int primaryCode) {}
 
     @Override
-    public void onRelease(int primaryCode) {}
+    public void onRelease(int primaryCode) {
+    }
 
     @Override
     public void onText(CharSequence text) {}

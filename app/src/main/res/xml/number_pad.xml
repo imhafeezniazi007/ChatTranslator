@@ -6,14 +6,14 @@
 
 
     <!-- Row 1 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="1001" android:keyIcon="@drawable/ic_keyboard_add" android:keyWidth="33.33%p" android:horizontalGap="0%p" android:id="@+id/item1"/>
         <Key android:codes="1002" android:keyIcon="@drawable/ic_keyboard_setting" android:keyWidth="33.33%p" android:horizontalGap="0%p" android:id="@+id/item2"/>
         <Key android:codes="1003" android:keyIcon="@drawable/ic_keyboard_mic" android:keyWidth="33.33%p" android:horizontalGap="0%p" android:id="@+id/item3" />
     </Row>
 
     <!-- Alphabets Row 1 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="113" android:keyLabel="q" android:keyWidth="9%p"/>
         <Key android:codes="119" android:keyLabel="w" android:keyWidth="9%p"/>
         <Key android:codes="101" android:keyLabel="e" android:keyWidth="9%p"/>
@@ -28,7 +28,7 @@
 
 
     <!-- Alphabets Row 2 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="97" android:keyLabel="a"/>
         <Key android:codes="115" android:keyLabel="s"/>
         <Key android:codes="100" android:keyLabel="d"/>
@@ -41,7 +41,7 @@
     </Row>
 
     <!-- Alphabets Row 3 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="59" android:keyIcon="@drawable/ic_caps_keyboard"/>
         <Key android:codes="122" android:keyLabel="z"/>
         <Key android:codes="120" android:keyLabel="x"/>
@@ -50,7 +50,7 @@
         <Key android:codes="98" android:keyLabel="b"/>
         <Key android:codes="110" android:keyLabel="n"/>
         <Key android:codes="109" android:keyLabel="m"/>
-        <Key android:codes="-5" android:keyIcon="@drawable/ic_backspace"/>
+        <Key android:codes="-5" android:keyIcon="@drawable/ic_backspace" android:isRepeatable="true"/>
     </Row>
 
     <!-- Special Characters and Numbers Row -->

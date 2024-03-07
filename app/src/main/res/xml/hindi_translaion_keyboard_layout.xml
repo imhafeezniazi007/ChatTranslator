@@ -3,7 +3,7 @@
     android:keyHeight="50dp">
 
     <!-- Row 1 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="2325" android:keyLabel="क" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
         <Key android:codes="2326" android:keyLabel="ख" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
         <Key android:codes="2327" android:keyLabel="ग" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
@@ -17,7 +17,7 @@
     </Row>
 
     <!-- Row 2 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="2335" android:keyLabel="ट" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
         <Key android:codes="2336" android:keyLabel="ठ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
         <Key android:codes="2337" android:keyLabel="ड" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="10%p"/>
@@ -31,7 +31,7 @@
     </Row>
 
     <!-- Row 3 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="2346" android:keyLabel="प" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
         <Key android:codes="2347" android:keyLabel="फ" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
         <Key android:codes="2348" android:keyLabel="ब" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="11.11%p"/>
@@ -44,7 +44,7 @@
     </Row>
 
     <!-- Row 4 -->
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="2336" android:keyIcon="@drawable/ic_caps_keyboard" android:horizontalGap="1%p" android:padding="5dp" android:keyWidth="20%p"/>
         <Key android:codes="2358" android:keyLabel="श" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="15%p"/>
         <Key android:codes="2359" android:keyLabel="ष" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="15%p"/>

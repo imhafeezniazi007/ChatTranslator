@@ -1,0 +1,9 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="100%p"
+    android:keyHeight="30%p">
+
+    <Row>
+        <Key android:codes="1006" android:keyIcon="@drawable/back" android:keyWidth="10%p" android:keyHeight="10%p"/>
+        <Key android:codes="1005" android:keyIcon="@drawable/icon_ct_mic" />
+    </Row>
+</Keyboard>

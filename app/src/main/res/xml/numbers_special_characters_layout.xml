@@ -3,7 +3,7 @@
     android:keyHeight="40dp">
 
 
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="49" android:keyLabel="1" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="10%p"/>
         <Key android:codes="50" android:keyLabel="2" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="10%p"/>
         <Key android:codes="51" android:keyLabel="3" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="10%p"/>
@@ -16,7 +16,7 @@
         <Key android:codes="48" android:keyLabel="0" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="10%p"/>
     </Row>
 
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="64" android:keyLabel="@string/rate" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="10%p"/>
         <Key android:codes="35" android:keyLabel="#" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="10%p"/>
         <Key android:codes="36" android:keyLabel="$" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="10%p"/>
@@ -29,7 +29,7 @@
         <Key android:codes="47" android:keyLabel="/" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="10%p"/>
     </Row>
 
-    <Row android:verticalGap="1.5%p">
+    <Row android:verticalGap="0.5%p">
         <Key android:codes="42" android:keyLabel="*" android:horizontalGap="1%p" android:keyWidth="13.33%p" android:padding="5dp"/>
         <Key android:codes="39" android:keyLabel="'" android:horizontalGap="1%p" android:keyWidth="13.33%p" android:padding="5dp"/>
         <Key android:codes="58" android:keyLabel=":" android:horizontalGap="1%p" android:keyWidth="13.33%p" android:padding="5dp"/>
