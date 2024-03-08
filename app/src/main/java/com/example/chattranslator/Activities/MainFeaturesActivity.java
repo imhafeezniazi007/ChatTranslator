@@ -18,8 +18,10 @@ import android.widget.ImageView;
 import com.example.chattranslator.Fragments.ChatTranslatorDefault;
 import com.example.chattranslator.R;
 import com.example.chattranslator.Services.SpeechToTextService;
+import com.example.chattranslator.Utils.AdManager;
 import com.example.chattranslator.databinding.ActivityMainBinding;
 import com.example.chattranslator.databinding.FragmentChatTranslatorDefaultBinding;
+import com.google.android.ads.nativetemplates.TemplateView;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -49,6 +51,9 @@ public class MainFeaturesActivity extends AppCompatActivity {
         setOnClickListenersForCards();
 
         requestPermissionsIfNecessary();
+
+        showNativeAd();
+        showBannerAd();
 
         activityMainBinding.btnIcVoiceCmd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +87,18 @@ public class MainFeaturesActivity extends AppCompatActivity {
         });
     }
 
+    private void showNativeAd() {
+        TemplateView nativeAdView = activityMainBinding.nativeMainad;
+
+        AdManager adManager = new AdManager(this, nativeAdView);
+        adManager.showAd(AdManager.AdType.NATIVE);
+    }
+
+    private void showBannerAd()
+    {
+        AdManager adManager = new AdManager(this, findViewById(R.id.bannerMainView),"top");
+        adManager.showAd(AdManager.AdType.BANNER);
+    }
     private void requestPermissionsIfNecessary() {
         if (ContextCompat.checkSelfPermission(MainFeaturesActivity.this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED){
         }
@@ -93,7 +110,6 @@ public class MainFeaturesActivity extends AppCompatActivity {
                         public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
 
                         }
-
                         @Override
                         public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
                             new AlertDialog.Builder(MainFeaturesActivity.this)
@@ -144,6 +160,12 @@ public class MainFeaturesActivity extends AppCompatActivity {
         btnCancel = findViewById(R.id.btnBtnCancel);
         btnExit = findViewById(R.id.btnBtnExit);
         imageView = findViewById(R.id.rating_img);
+
+        View exitScreenLayout = getLayoutInflater().inflate(R.layout.layout_exit_screen, null);
+        TemplateView nativeAdView = exitScreenLayout.findViewById(R.id.nativeExitAd);
+
+        AdManager adManager = new AdManager(this, nativeAdView);
+        adManager.showAd(AdManager.AdType.NATIVE);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,7 +189,6 @@ public class MainFeaturesActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public void onBackPressed() {
         if (isFeedbackShown) {

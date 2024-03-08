@@ -34,4 +34,23 @@
     <string name="rate">\@</string>
     <string name="questionmark">\?</string>
     <string name="type_here_to_translate">Type here to translate</string>
+    <string name="_1_month">1 Month</string>
+    <string name="basic">Basic</string>
+    <string name="premium">Premium</string>
+    <string name="_18">18$</string>
+    <string name="_1_year">1 Year</string>
+    <string name="_1_time">1 Time</string>
+    <string name="_subscription_string">You can cancel any subscription at any time in Subscriptions on Google Play. You’ll be charged automatically every month/year (as per subscribed subscription) until you cancel. You won’t be charged if you cancel before the trial period finished. Billing starts at the end of your free trail. Trail period start as soon as your subscription is confirmed by Google. Google send you reminder before your trial ends</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="get_pro_features">Get Pro Features</string>
+    <string name="please_allow_us_to_use_mic_for_chat_keyboard">Please allow us to use mic for chat keyboard</string>
+    <string name="disable">Disable</string>
+    <string name="enable_chat_keyboard_to_continue">Enable Chat Keyboard to continue</string>
+    <string name="enable_access">Enable Access</string>
+    <string name="let_s_start">Let\'s start</string>
+    <string name="experience_instant_translations_as_you_type_or_speak_allowing_for_smooth_and_fluid_communication_in_any_situation">Experience instant translations as you type or speak, allowing for smooth and fluid communication in any situation.</string>
+    <string name="id_interstitial_ad"> </string>
+    <string name="id_rewarded_ad">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="id_native_ad"> </string>
+    <string name="bannerId">ca-app-pub-3940256099942544/2014213617</string>
 </resources>

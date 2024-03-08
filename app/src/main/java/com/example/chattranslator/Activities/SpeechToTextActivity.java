@@ -26,8 +26,10 @@ import com.example.chattranslator.Services.LanguageApiService;
 import com.example.chattranslator.Services.SpeechToTextService;
 import com.example.chattranslator.Services.TextToSpeechManager;
 import com.example.chattranslator.Services.TextTranslateService;
+import com.example.chattranslator.Utils.AdManager;
 import com.example.chattranslator.databinding.ActivityChatTranslatorBinding;
 import com.example.chattranslator.databinding.ActivitySpeechToTextBinding;
+import com.google.android.ads.nativetemplates.TemplateView;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.karumi.dexter.Dexter;
@@ -74,6 +76,8 @@ public class SpeechToTextActivity extends AppCompatActivity {
         });
 
         new FetchDataAsyncTask().execute();
+
+        showNative();
 
         activitySpeechToTextBinding.btnSttVoiceCmd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,6 +169,13 @@ public class SpeechToTextActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void showNative() {
+        TemplateView nativeAdView = activitySpeechToTextBinding.nativeSTTad;
+
+        AdManager adManager = new AdManager(this, nativeAdView);
+        adManager.showAd(AdManager.AdType.NATIVE);
     }
 
     private int getSpinnerPosition(String languageCode) {

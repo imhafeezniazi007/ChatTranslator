@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_background"
     tools:context=".Activities.MainFeaturesActivity">
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,18 +25,30 @@
         app:layout_constraintTop_toTopOf="parent" >
     </androidx.appcompat.widget.Toolbar>
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/bannerMainView"
+        ads:adUnitId="@string/bannerId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        ads:adSize="LARGE_BANNER"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_constraint_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/item_main_features_background"
-        android:backgroundTint="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_8sdp">
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/item_main_features_background"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerMainView">
 
         <ImageView
             android:id="@+id/imageView"
@@ -51,11 +64,11 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
             android:text="@string/instant_chat"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="@dimen/_12sdp"
-            android:layout_margin="@dimen/_8sdp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -82,8 +95,8 @@
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btn_ic_voice_cmd"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -188,10 +201,13 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_constraint_four"
+
+    <com.google.android.ads.nativetemplates.TemplateView
+        android:id="@+id/nativeMainad"
+        app:gnt_template_type="@layout/gnt_medium_template_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
@@ -208,7 +224,7 @@
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/cl_constraint_two"
         app:layout_constraintStart_toStartOf="@+id/cl_constraint_two"
-        app:layout_constraintTop_toBottomOf="@+id/cl_constraint_four">
+        app:layout_constraintTop_toBottomOf="@+id/nativeMainad">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -245,7 +261,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/cl_constraint_five"
         app:layout_constraintEnd_toEndOf="@+id/cl_constraint_three"
         app:layout_constraintStart_toStartOf="@+id/cl_constraint_three"
-        app:layout_constraintTop_toBottomOf="@+id/cl_constraint_four">
+        app:layout_constraintTop_toBottomOf="@+id/nativeMainad">
 
         <ImageView
             android:id="@+id/imageView5"

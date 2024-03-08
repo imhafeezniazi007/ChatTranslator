@@ -12,12 +12,15 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
 import com.example.chattranslator.Adapters.LanguagesAdapter;
 import com.example.chattranslator.Models.AvailableLanguage;
+import com.example.chattranslator.Utils.AdManager;
 import com.example.chattranslator.databinding.ActivitySettingBinding;
 import com.example.chattranslator.R;
 
@@ -27,7 +30,7 @@ public class SettingActivity extends AppCompatActivity {
 
     ActivitySettingBinding activitySettingBinding;
     private SharedPreferences sharedPreferences;
-    private boolean isShown;
+    private boolean isShown, isChecked;
     private String currLan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,25 +42,29 @@ public class SettingActivity extends AppCompatActivity {
         activitySettingBinding.toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         setSupportActionBar(activitySettingBinding.toolbar);
 
+        activitySettingBinding.toolbar.setNavigationOnClickListener(v -> finish());
+
         isShown = false;
-        sharedPreferences = getApplicationContext().getSharedPreferences("sharedPreference", Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("sharedPreference", Context.MODE_PRIVATE);
 
         currLan = sharedPreferences.getString("currLan", null);
+        isChecked = sharedPreferences.getBoolean("isChecked", true);
+
+        activitySettingBinding.switchOne.setChecked(isChecked);
+
         activitySettingBinding.languageNameTextView.setText(currLan);
 
-        if (activitySettingBinding.switchOne.isActivated())
-        {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean("toggleNumbers", true);
-            editor.apply();
-        }
+        activitySettingBinding.switchOne.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("toggleNumbers", isChecked);
+                editor.putBoolean("isChecked", isChecked);
+                editor.apply();
+            }
+        });
 
-        if (!activitySettingBinding.switchOne.isActivated())
-        {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean("toggleNumbers", false);
-            editor.apply();
-        }
+        showBannerAd();
 
         List<AvailableLanguage> languageList = new ArrayList<>();
         languageList.add(new AvailableLanguage("English"));
@@ -67,6 +74,15 @@ public class SettingActivity extends AppCompatActivity {
         LanguagesAdapter adapter = new LanguagesAdapter(this, languageList);
         activitySettingBinding.lvListVew.setAdapter(adapter);
 
+        activitySettingBinding.clSettingConstraintOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager imeManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imeManager != null) {
+                    imeManager.showInputMethodPicker();
+                }
+            }
+        });
         activitySettingBinding.clSettingConstraintTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +93,12 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void showBannerAd()
+    {
+        AdManager adManager = new AdManager(this, "top");
+        adManager.showAd(AdManager.AdType.BANNER);
     }
 
     private void showLanguagePopup(View anchorView) {
@@ -111,5 +133,12 @@ public class SettingActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isChecked = sharedPreferences.getBoolean("isChecked", true);
+        activitySettingBinding.switchOne.setChecked(isChecked);
     }
 }

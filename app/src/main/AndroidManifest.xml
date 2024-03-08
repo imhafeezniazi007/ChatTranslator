@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".Utils.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,6 +17,29 @@
         android:theme="@style/Theme.ChatTranslator"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8553911388603017~3170772403" />
+
+        <activity
+            android:name=".Activities.KeyboardAccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.MicAccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.SubscriptionActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.ThemesActivity"
             android:exported="false" />
         <activity
@@ -24,12 +47,13 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="chattranslator" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activities.VoiceTranslatorActivity"
             android:exported="false" />
@@ -41,13 +65,7 @@
             android:exported="false" />
         <activity
             android:name=".Activities.MainFeaturesActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"/>
 
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
@@ -55,17 +73,17 @@
 
         <service
             android:name=".Services.MyInputMethodService"
+            android:exported="true"
             android:label="Translator Keyboard"
-            android:permission="android.permission.BIND_INPUT_METHOD"
-            android:exported="true">
+            android:permission="android.permission.BIND_INPUT_METHOD">
             <intent-filter>
-                <action android:name="android.view.InputMethod"/>
+                <action android:name="android.view.InputMethod" />
             </intent-filter>
+
             <meta-data
                 android:name="android.view.im"
-                android:resource="@xml/method"/>
+                android:resource="@xml/method" />
         </service>
-
     </application>
 
 </manifest>

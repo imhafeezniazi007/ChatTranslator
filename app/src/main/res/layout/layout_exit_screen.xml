@@ -28,12 +28,15 @@
         app:layout_constraintStart_toStartOf="@+id/nativeExitAd"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.ads.nativetemplates.TemplateView
         android:id="@+id/nativeExitAd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_16sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
         android:padding="@dimen/_8sdp"
+        app:gnt_template_type="@layout/gnt_medium_template_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -42,10 +45,10 @@
         android:id="@+id/rate_us_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBtnExit"
         app:layout_constraintEnd_toEndOf="@+id/nativeExitAd"
-        app:layout_constraintStart_toStartOf="@+id/nativeExitAd"
-        app:layout_constraintTop_toBottomOf="@+id/nativeExitAd">
+        app:layout_constraintStart_toStartOf="@+id/nativeExitAd">
 
         <TextView
             android:id="@+id/textView6"

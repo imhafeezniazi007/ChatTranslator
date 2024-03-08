@@ -18,3 +18,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Chat Translator"
 include ':app'
+include ':nativetemplates'

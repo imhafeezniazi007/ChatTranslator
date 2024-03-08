@@ -52,5 +52,9 @@ dependencies {
     implementation 'com.google.mlkit:translate:17.0.2'
     implementation 'com.google.android.gms:play-services-mlkit-language-id:17.0.0'
     implementation 'com.google.mlkit:language-id:17.0.5'
+    def billing_version = "6.1.0"
+    implementation "com.android.billingclient:billing:$billing_version"
+    implementation 'com.google.android.gms:play-services-ads:22.6.0'
+    implementation project(':nativetemplates')
 
 }

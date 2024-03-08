@@ -67,8 +67,6 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     private SpeechRecognizer speechRecognizer;
     private String currLan, textToTranslate, sourceLanCode, destinationLanCode;
     private SpeechToTextService stts;
-    private Handler handler;
-    private boolean backspaceLongPressed;
 
     @Override
     public View onCreateInputView() {
@@ -85,6 +83,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
         stts = new SpeechToTextService();
 
         sharedPreferences = getSharedPreferences("sharedPreference", Context.MODE_PRIVATE);
+
         toggleNumbers = sharedPreferences.getBoolean("toggleNumbers", false);
         currLan = sharedPreferences.getString("currLan", null);
 

@@ -14,5 +14,5 @@
     <color name="key_stroke_color">#CCCCCC</color>
     <color name="key_popup_text_color">#FFFFFF</color>
     <color name="key_popup_background">#333333</color>
-
+    <color name="color_off_white">#F6F6F6</color>
 </resources>

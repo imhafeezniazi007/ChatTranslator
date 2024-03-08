@@ -101,15 +101,20 @@
             app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+        <com.google.android.ads.nativetemplates.TemplateView
+            android:id="@+id/nativeChatad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/item_main_features_background"
-            android:layout_margin="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:padding="@dimen/_8sdp"
+            app:gnt_template_type="@layout/gnt_medium_template_view"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_ct_def_mic" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

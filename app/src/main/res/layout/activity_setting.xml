@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_background"
     tools:context=".Activities.SettingActivity">
 
@@ -20,6 +21,17 @@
         app:layout_constraintTop_toTopOf="parent" >
     </androidx.appcompat.widget.Toolbar>
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/bannerSettingView"
+        ads:adUnitId="@string/bannerId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintList"
@@ -49,7 +61,7 @@
         android:padding="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        app:layout_constraintTop_toBottomOf="@id/bannerSettingView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_setting_constraint_one"

@@ -35,7 +35,9 @@ import com.example.chattranslator.R;
 import com.example.chattranslator.Services.LanguageApiService;
 import com.example.chattranslator.Services.SpeechToTextService;
 import com.example.chattranslator.Services.TextTranslateService;
+import com.example.chattranslator.Utils.AdManager;
 import com.example.chattranslator.databinding.FragmentChatTranslatorDefaultBinding;
+import com.google.android.ads.nativetemplates.TemplateView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.mlkit.common.model.DownloadConditions;
@@ -78,6 +80,8 @@ public class ChatTranslatorDefault extends Fragment {
         spinnerTwo = fragmentChatTranslatorDefaultBinding.ctSpinnerTwo;
 
         new FetchDataAsyncTask().execute();
+
+        showNativeAd();
 
         LanguageApiService languageApiService = new LanguageApiService();
         languages = languageApiService.fetchData(requireContext());
@@ -185,6 +189,13 @@ public class ChatTranslatorDefault extends Fragment {
                 }
             }
         });
+    }
+
+    private void showNativeAd() {
+        TemplateView nativeAdView = fragmentChatTranslatorDefaultBinding.nativeChatad;
+
+        AdManager adManager = new AdManager(getContext(), nativeAdView);
+        adManager.showAd(AdManager.AdType.NATIVE);
     }
 
     private void detectLanguage(String string) {
