@@ -7,11 +7,12 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.chattranslator"
+        applicationId "translate.chat.translator.keyboard.iphonekeyboard.all.languages.translator"
         minSdk 21
         targetSdk 34
         versionCode 1
         versionName "1.0"
+        versionName "0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -52,9 +53,17 @@ dependencies {
     implementation 'com.google.mlkit:translate:17.0.2'
     implementation 'com.google.android.gms:play-services-mlkit-language-id:17.0.0'
     implementation 'com.google.mlkit:language-id:17.0.5'
-    def billing_version = "6.1.0"
-    implementation "com.android.billingclient:billing:$billing_version"
+    implementation "com.android.billingclient:billing:6.2.0"
+    implementation "androidx.lifecycle:lifecycle-process:2.7.0"
     implementation 'com.google.android.gms:play-services-ads:22.6.0'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.9'
+    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
+
+    implementation("com.google.firebase:firebase-config")
+    implementation("com.google.firebase:firebase-analytics")
     implementation project(':nativetemplates')
 
 }

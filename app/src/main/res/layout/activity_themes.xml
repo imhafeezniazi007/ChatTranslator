@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_background"
-    tools:context=".Activities.ThemesActivity">
+    tools:context="translate.chat.translator.keyboard.iphonekeyboard.all.languages.translator.Activities.ThemesActivity">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -61,14 +61,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/icon_theme_two" />
 
+ <com.google.android.ads.nativetemplates.TemplateView
+     android:id="@+id/nativeTemplatead"
+     app:gnt_template_type="@layout/gnt_medium_template_view"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:padding="@dimen/_8sdp"
+     android:layout_marginTop="@dimen/_8sdp"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@id/icon_theme_four" />
+
  <ImageView
         android:id="@+id/icon_theme_five"
         android:layout_width="@dimen/_120sdp"
         android:layout_height="@dimen/_120sdp"
         android:src="@drawable/bg_keyboard_five"
         android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_theme_three" />
+        app:layout_constraintTop_toBottomOf="@+id/nativeTemplatead" />
 
 
  <ImageView
@@ -77,8 +89,9 @@
         android:layout_height="@dimen/_120sdp"
         android:src="@drawable/bg_keyboard_six"
         android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon_theme_four" />
+        app:layout_constraintTop_toBottomOf="@+id/nativeTemplatead" />
 
  <ImageView
         android:id="@+id/icon_theme_seven"

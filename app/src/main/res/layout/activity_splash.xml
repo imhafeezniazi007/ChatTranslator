@@ -5,18 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_background"
-    tools:context=".Activities.SplashActivity">
+    tools:context="translate.chat.translator.keyboard.iphonekeyboard.all.languages.translator.Activities.SplashActivity">
 
-
-    <TextView
+    <ImageView
+        android:id="@+id/imageView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16sdp"
+        android:src="@drawable/app_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16sdp"
         android:text="@string/experience_instant_translations_as_you_type_or_speak_allowing_for_smooth_and_fluid_communication_in_any_situation"
         android:textColor="@color/black"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/btn_proceed"
-        android:layout_margin="@dimen/_16sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/imageView12"
+        app:layout_constraintStart_toStartOf="@+id/imageView12" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_proceed"

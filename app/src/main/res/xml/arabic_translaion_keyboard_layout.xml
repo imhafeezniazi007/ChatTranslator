@@ -41,7 +41,7 @@
         <Key android:codes="1605" android:keyLabel="ؤ" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>
         <Key android:codes="1585" android:keyLabel="ر" android:horizontalGap="1%p" android:keyWidth="8.75%p" android:padding="5dp"/>
         <Key android:codes="1589" android:keyLabel="لا" android:padding="5dp" android:horizontalGap="1%p" android:keyWidth="8.75%p"/>
-        <Key android:codes="-5" android:keyIcon="@drawable/ic_backspace" android:keyWidth="15%p" android:horizontalGap="1%p"/>
+        <Key android:codes="-5" android:keyIcon="@drawable/ic_backspace" android:keyWidth="15%p" android:horizontalGap="1%p" android:isRepeatable="true"/>
     </Row>
 
     <Row android:rowEdgeFlags="bottom" android:verticalGap="0.5%p">

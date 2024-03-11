@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_background"
-    tools:context=".Fragments.ChatTranslatorDefault">
+    tools:context="translate.chat.translator.keyboard.iphonekeyboard.all.languages.translator.Fragments.ChatTranslatorDefault">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

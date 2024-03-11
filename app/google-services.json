@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "735858022547",
+    "project_id": "translator-73c3f",
+    "storage_bucket": "translator-73c3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735858022547:android:41cd3f61bb28f5a4c29566",
+        "android_client_info": {
+          "package_name": "translate.chat.translator.keyboard.iphonekeyboard.all.languages.translator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC27rAAqZkBQNTAecF8Of8lLQ14sP8jX6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

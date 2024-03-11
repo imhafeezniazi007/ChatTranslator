@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_background"
-    tools:context=".Activities.SettingActivity">
+    tools:context="translate.chat.translator.keyboard.iphonekeyboard.all.languages.translator.Activities.SettingActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        ads:adSize="BANNER"
+        ads:adSize="LARGE_BANNER"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

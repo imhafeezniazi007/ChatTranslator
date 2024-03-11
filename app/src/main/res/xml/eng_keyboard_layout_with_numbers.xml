@@ -53,7 +53,7 @@
         <Key android:codes="98" android:keyLabel="b" android:horizontalGap="1%p" android:keyWidth="10%p" android:padding="5dp"/>
         <Key android:codes="110" android:keyLabel="n" android:horizontalGap="1%p" android:keyWidth="10%p" android:padding="5dp"/>
         <Key android:codes="109" android:keyLabel="m" android:horizontalGap="1%p" android:keyWidth="10%p" android:padding="5dp"/>
-        <Key android:codes="-5" android:keyIcon="@drawable/ic_backspace" android:keyWidth="15%p" android:horizontalGap="1%p" android:padding="5dp" />
+        <Key android:codes="-5" android:keyIcon="@drawable/ic_backspace" android:keyWidth="15%p" android:horizontalGap="1%p" android:padding="5dp" android:isRepeatable="true"/>
     </Row>
 
 

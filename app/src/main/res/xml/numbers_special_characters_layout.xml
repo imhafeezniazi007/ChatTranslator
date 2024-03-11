@@ -36,7 +36,7 @@
         <Key android:codes="59" android:keyLabel=";" android:horizontalGap="1%p" android:keyWidth="13.33%p" android:padding="5dp"/>
         <Key android:codes="33" android:keyLabel="!" android:horizontalGap="1%p" android:keyWidth="13.33%p" android:padding="5dp"/>
         <Key android:codes="63" android:keyLabel="@string/questionmark" android:horizontalGap="1%p" android:keyWidth="13.33%p" android:padding="5dp"/>
-        <Key android:codes="-5" android:keyIcon="@drawable/ic_backspace" android:keyWidth="20%p" android:horizontalGap="1%p" android:padding="5dp"/>
+        <Key android:codes="-5" android:keyIcon="@drawable/ic_backspace" android:keyWidth="20%p" android:horizontalGap="1%p" android:padding="5dp" android:isRepeatable="true"/>
     </Row>
 
     <Row android:verticalGap="0.5%p">
