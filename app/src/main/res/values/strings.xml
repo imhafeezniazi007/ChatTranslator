@@ -55,10 +55,10 @@
     <string name="privacy_policy_website">https://rnmappsdev.blogspot.com/2024/02/rnm-apps-privacy-policy.html</string>
     <string name="html_content">By clicking the ACCEPT button, you are confirming your agreement with our privacy policy and the terms and conditions governing the use of our app.</string>
     <string name="experience_instant_translations_as_you_type_or_speak_allowing_for_smooth_and_fluid_communication_in_any_situation">Experience instant translations as you type or speak, allowing for smooth and fluid communication in any situation.</string>
-    <string name="id_interstitial_ad">ca-app-pub-9723290768181539/5996307331</string>
-    <string name="id_rewarded_ad">ca-app-pub-3940256099942544/5224354917</string>
-    <string name="id_native_ad">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="bannerId">ca-app-pub-3940256099942544/2014213617</string>
+    <string name="id_interstitial_ad"> </string>
+    <string name="id_rewarded_ad"> </string>
+    <string name="id_native_ad"> </string>
+    <string name="bannerId"> </string>
     <string name="bannerIdSimple">ca-app-pub-9723290768181539/3660474952</string>
 
 </resources>
